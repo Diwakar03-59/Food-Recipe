@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+{% if data is defined %}
+  <h2> {{ data }} </h2>
+{% endif %}
+
+<form action='{{ path('app_home') }}' method='post' name='Post' enctype='multipart/form-data'> 
+  Enter your food Image:
+  <input type='file' class="w3-theme post" name='fileToUpload' id='fileToUpload'>
+  <br>
+  <input class='w3-btn w3-theme' type='submit' id='submit' name="submit" value="Submit"> 
+</form>
+
+{% if f_name is defined %}
+
+  {% for name in f_name %}
+    <h2> {{ name }} </h2>
+  {% endfor %}
+
+  {% for probability in prob %}
+    <h3> {{ probability }} </h3>
+  {% endfor %}
+
+{% endif %}
+
+{% endblock %}
